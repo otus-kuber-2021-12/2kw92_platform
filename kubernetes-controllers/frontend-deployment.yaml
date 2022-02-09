@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: server
+        image: 2kw92/frontend:0.1
+        readinessProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              path: "/_health"
+              port: 8080
+              httpHeaders:
+              - name: "Cookie"
+                value: "shop_session-id=x-readiness-probe" 
+        env:
+          - name: PRODUCT_CATALOG_SERVICE_ADDR
+            value: "192.168.1.1"
+          - name: CURRENCY_SERVICE_ADDR
+            value: "192.168.1.2"
+          - name: CART_SERVICE_ADDR
+            value: "192.168.1.3"
+          - name: RECOMMENDATION_SERVICE_ADDR
+            value: "192.168.1.4"
+          - name: CHECKOUT_SERVICE_ADDR
+            value: "192.168.1.5"
+          - name: SHIPPING_SERVICE_ADDR
+            value: "192.168.1.6"
+          - name: AD_SERVICE_ADDR
+            value: "192.168.1.7"
+
