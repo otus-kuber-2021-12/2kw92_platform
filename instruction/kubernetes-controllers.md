@@ -316,4 +316,13 @@ Events:
 ```
 [docker@kuber ~]$ kubectl rollout status deployment/frontend
 Waiting for deployment "frontend" rollout to finish: 0 of 3 updated replicas are available...
+```
+
+И снова проверяем:
+```
+[docker@kuber ~]$ kubectl get pods
+NAME                        READY   STATUS    RESTARTS   AGE
+frontend-55f49bdcc7-4fppx   1/1     Running   0          75s
+frontend-55f49bdcc7-pr5d5   1/1     Running   0          74s
+frontend-55f49bdcc7-vwgqd   1/1     Running   0          74s
 ``` 
