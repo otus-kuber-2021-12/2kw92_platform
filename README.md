@@ -5,5 +5,5 @@
 
 Домашняя работа №2 ( [homework2 kubernetes-controllers](instruction/kubernetes-controllers.md) )
 
-Домашняя работа №3 ( [homework2 kubernetes-security](instruction/kubernetes-security.md) )
+Домашняя работа №3 ( [homework3 kubernetes-security](instruction/kubernetes-security.md) )
  
